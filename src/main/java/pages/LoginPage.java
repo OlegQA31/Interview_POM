@@ -1,5 +1,6 @@
 package pages;
 
+import models.User;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,9 +21,9 @@ public class LoginPage extends PageBase{
     WebElement password;
 
     @FindBy(xpath = "//button[@class='btn btn-primary']")
-    WebElement btn;
+    WebElement btnLogin;
 
-    public LoginPage fillInTheForm(String uname,String name, String pswrd){
+    public LoginPage fillInTheLoginForm(String uname,String name, String pswrd){
         type(orgName,uname);
         type(userName,name);
         type(password,pswrd);
@@ -30,7 +31,24 @@ public class LoginPage extends PageBase{
     }
 
     public ManagerReportPage confirmLogin(){
-        click(btn);
+        click(btnLogin);
         return new ManagerReportPage(wd);
+    }
+
+
+    public boolean isLoginBtn() {
+        should(btnLogin,3);
+        return btnLogin.isDisplayed();
+    }
+
+    public LoginPage loginWithNewUserData(User user) {
+        type(userName,user.getUserName());
+        type(password,user.getPassword());
+        return new LoginPage(wd);
+    }
+
+    public RegisterPage toRegisterPage(){
+        click(btnLogin);
+        return new RegisterPage(wd);
     }
 }
