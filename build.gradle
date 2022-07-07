@@ -28,9 +28,12 @@ test {
 task sTstart(type: Test){
 
     useTestNG {
-        if(project.hasProperty('browser')){
-            systemProperty 'browser', "${browser}"
-            //./gradlew -Pbrowser=MicrosoftEdge clean sTstart
-        }
+
+
+
+    }
+    if(project.hasProperty('browser')){
+        systemProperty 'browser', "${browser}"
+        //./gradlew -Pbrowser=MicrosoftEdge clean sTstart
     }
     }

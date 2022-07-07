@@ -6,19 +6,18 @@ import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.ManagerReportPage;
 import pages.NavigationPanel;
-import pages.UserManagementPage;
 
-public class FirstTest extends InitTest {
+public class CreateNewUserTest extends InitTest {
 
     @BeforeMethod
     public void firstLogin() {
         new LoginPage(wd)
-                .fillInTheLoginForm("qaorg", "admin", "Qwerty123")
+                .fillInTheLoginForm("qaorg", "admin1", "Qwerty123")
                 .confirmLogin();
     }
 
     @Test
-    public void newUserCreation() {
+    public void newUserCreationTest() {
         int index = (int) System.currentTimeMillis() / 1000 % 3600;
         User user = User.builder()
                 .userName("Yakov" + index)
@@ -28,7 +27,7 @@ public class FirstTest extends InitTest {
                 .phone("8305568706")
                 .password("Qwerty1234")
                 .build();
-        System.out.println(index + " " + user.toString());
+
 
         boolean isLoginBtnPresent=new ManagerReportPage(wd).transferToUMP()
                 .createUser(user)

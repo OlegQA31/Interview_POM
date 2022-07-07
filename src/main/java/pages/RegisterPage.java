@@ -22,7 +22,7 @@ public class RegisterPage extends PageBase{
 
 
     public RegisterPage fillInPassword(User user) {
-        if(pageCheck(regSubmitBtn,3)){
+        if(pageCheck(regSubmitBtn,6)){
             type(inputPassword,user.getPassword());
             type(inputConfirmPassword,user.getPassword());
         }

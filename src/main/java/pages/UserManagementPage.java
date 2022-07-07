@@ -96,6 +96,4 @@ public class UserManagementPage extends PageBase {
     public NavigationPanel transferToNP(){
         return new NavigationPanel(wd);
     }
-
-
 }

@@ -27,7 +27,7 @@ public class InitTest {
     }
     @AfterSuite
     public void tearDown(){
-        //wd.quit();
+        wd.quit();
     }
 
 }
