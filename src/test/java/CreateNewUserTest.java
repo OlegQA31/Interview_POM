@@ -1,5 +1,6 @@
 import models.User;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -9,7 +10,7 @@ import pages.NavigationPanel;
 
 public class CreateNewUserTest extends InitTest {
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void firstLogin() {
         new LoginPage(wd)
                 .fillInTheLoginForm("qaorg", "admin1", "Qwerty123")
@@ -45,7 +46,7 @@ public class CreateNewUserTest extends InitTest {
 
     }
 
-    @AfterTest
+    @AfterMethod(alwaysRun = true)
     public void logOutCheck(){
         NavigationPanel nP=new NavigationPanel(wd);
         if(nP.isLogged()){

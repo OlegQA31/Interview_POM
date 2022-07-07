@@ -28,10 +28,21 @@ test {
 task sTstart(type: Test){
 
     useTestNG {
+        def suite = System.getProperty('suite', '')
 
-
-
+        if (suite.equals('newusertest')) {
+            suites 'src/test/resources/newusertest.xml'
+        } else if (suite.equals('invalidlogintest')) {
+            suites 'src/test/resources/invalidlogintest.xml'
+        } else {
+            suites 'src/test/resources/testng.xml'
+        }
     }
+//./gradlew -Dsuite=invalidlogintest clean sTstart
+//./gradlew -Dsuite=newusertest clean sTstart
+// ./gradlew clean sTstart
+
+
     if(project.hasProperty('browser')){
         systemProperty 'browser', "${browser}"
         //./gradlew -Pbrowser=MicrosoftEdge clean sTstart

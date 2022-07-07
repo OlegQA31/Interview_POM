@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class PageBase {
-    WebDriver wd;
+    protected WebDriver wd;
 
     public PageBase(WebDriver wd) {
         this.wd = wd;

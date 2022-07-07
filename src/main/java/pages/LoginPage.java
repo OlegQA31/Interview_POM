@@ -42,6 +42,13 @@ public class LoginPage extends PageBase{
         return this;
     }
 
+    public int fieldsCounter(){
+        List<WebElement> list= wd.findElements(By.xpath("//input"));
+        int fieldsAmount=list.size();
+        System.out.println(fieldsAmount);
+        return fieldsAmount;
+    }
+
     public LoginPage confirmLogin(){
         click(btnLogin);
         return new LoginPage(wd);
@@ -71,7 +78,7 @@ public class LoginPage extends PageBase{
             type(orgName, "qaorg");
             type(userName, user.getUserName());
             type(password, user.getPassword());
-        }else{
+        }else if(fieldsCounter()==2){
             type(userName, user.getUserName());
             type(password, user.getPassword());
         }
@@ -82,10 +89,5 @@ public class LoginPage extends PageBase{
         return pageCheck(errorMsg,5);
     }
 
-    public int fieldsCounter(){
-        List<WebElement> list= wd.findElements(By.tagName("input"));
-        int fieldsAmount=list.size();
-        System.out.println(fieldsAmount);
-        return fieldsAmount;
-    }
+
 }

@@ -21,7 +21,7 @@ public class ManagerReportPage extends PageBase {
 
 
     public UserManagementPage transferToUMP() {
-        if (pageCheck(mReport,10) == true) {
+        if (pageCheck(mReport,15) == true) {
             click(mReport);
             should(administration, 2);
             click(administration);

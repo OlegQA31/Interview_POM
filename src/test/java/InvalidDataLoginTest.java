@@ -7,7 +7,7 @@ import pages.NavigationPanel;
 
 public class InvalidDataLoginTest extends InitTest {
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void logOutCheck() {
         NavigationPanel nP = new NavigationPanel(wd);
         if (nP.isLogged()) {
