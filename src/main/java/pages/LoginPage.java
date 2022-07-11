@@ -19,7 +19,7 @@ public class LoginPage extends PageBase{
     @FindBy(id = "OrgIDInput")
     WebElement orgName;
 
-    @FindBy(id = "UserNameInput")
+    @FindBy(id = "UserNameInpu")
     WebElement userName;
 
     @FindBy(id = "PasswordInput")

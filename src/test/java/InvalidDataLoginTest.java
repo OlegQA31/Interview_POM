@@ -1,4 +1,6 @@
 import models.User;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.remote.SessionId;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -16,12 +18,12 @@ public class InvalidDataLoginTest extends InitTest {
     }
 
     @Test
-    public void loginWithInvalidDataTest(){
+    public void loginWithInvalidDataTest() {
         int index = (int) System.currentTimeMillis() / 1000 % 3600;
-        User user= User.builder().userName("John"+index).password("Qq").build();
+        User user = User.builder().userName("John" + index).password("Qq").build();
 
 
-        boolean errorMessagePresent=new LoginPage(wd)
+        boolean errorMessagePresent = new LoginPage(wd)
                 .fillInIncorrectData(user)
                 .confirmLogin()
                 .isErrorMessagePresent();

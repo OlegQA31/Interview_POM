@@ -25,6 +25,7 @@ public class NavigationPanel extends PageBase {
 
     public boolean isLogged() {
         try {
+            pause(2000);
             should(menu, 2);
             if (menu.isDisplayed()) {
                 return true;

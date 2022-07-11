@@ -39,7 +39,6 @@ public class PageBase {
     }
 
 
-
     public void should(WebElement element, int time) {
         new WebDriverWait(wd, time)
                 .until(ExpectedConditions.visibilityOf(element));
@@ -54,10 +53,10 @@ public class PageBase {
         click(element);
 
         Rectangle rect = element.getRect();
-        Actions actions=new Actions(wd);
+        Actions actions = new Actions(wd);
         actions.moveToElement(element).release().build().perform();
-        int y=rect.getHeight();
-        actions.moveByOffset(0,offSet*y).click().build().perform();
+        int y = rect.getHeight();
+        actions.moveByOffset(0, offSet * y).click().build().perform();
 
     }
 
